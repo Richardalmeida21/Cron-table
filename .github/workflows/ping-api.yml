@@ -1,0 +1,15 @@
+name: Ping API Every Minute
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # A cada 1 minuto
+  workflow_dispatch:  # Permite acionar manualmente, se necessário
+
+jobs:
+  ping_api:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enviar requisição HTTP para API
+        run: |
+          curl -X GET https://sua-api-no-render.com/ping  # Altere para o seu endpoint
